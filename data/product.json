@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "name": "Samsung Galaxy S21",
+    "description": "Flagship smartphone with powerful features",
+    "excerpt": "Powerful flagship device with top-notch features",
+    "price": 799.99,
+    "thumbnail": "s21_thumbnail.jpg",
+    "authorId": 1
+  },
+  {
+    "id": 2,
+    "name": "Samsung Galaxy Note 20 Ultra",
+    "description": "Premium Note series smartphone with S Pen",
+    "excerpt": "High-end smartphone with advanced S Pen functionality",
+    "price": 1099.99,
+    "thumbnail": "note_20_ultra_thumbnail.jpg",
+    "authorId": 1
+  },
+  {
+    "id": 3,
+    "name": "Samsung Galaxy S20 FE",
+    "description": "Fan Edition with a vibrant display and powerful camera",
+    "excerpt": "Vibrant display and powerful camera in a fan-favorite edition",
+    "price": 699.99,
+    "thumbnail": "s20_fe_thumbnail.jpg",
+    "authorId": 1
+  },
+  {
+    "id": 4,
+    "name": "Samsung Galaxy A52",
+    "description": "Mid-range smartphone with a versatile camera setup",
+    "excerpt": "Versatile camera setup in a stylish mid-range device",
+    "price": 399.99,
+    "thumbnail": "a52_thumbnail.jpg",
+    "authorId": 1
+  },
+  {
+    "id": 5,
+    "name": "Samsung Galaxy Z Fold 3",
+    "description": "Foldable flagship with an immersive display",
+    "excerpt": "Immersive foldable display in a flagship device",
+    "price": 1799.99,
+    "thumbnail": "z_fold_3_thumbnail.jpg",
+    "authorId": 1
+  },
+  {
+    "id": 6,
+    "name": "Samsung Galaxy S22",
+    "description": "Upcoming flagship with advanced camera technology",
+    "excerpt": "Anticipated flagship with cutting-edge camera tech",
+    "price": 899.99,
+    "thumbnail": "s22_thumbnail.jpg",
+    "authorId": 1
+  },
+  {
+    "id": 7,
+    "name": "Samsung Galaxy A72",
+    "description": "Premium mid-range phone with a large display",
+    "excerpt": "Large display and premium features in a mid-range device",
+    "price": 499.99,
+    "thumbnail": "a72_thumbnail.jpg",
+    "authorId": 1
+  },
+  {
+    "id": 8,
+    "name": "Samsung Galaxy M32",
+    "description": "Budget-friendly smartphone with a long-lasting battery",
+    "excerpt": "Affordable device with a focus on battery life",
+    "price": 249.99,
+    "thumbnail": "m32_thumbnail.jpg",
+    "authorId": 1
+  },
+  {
+    "id": 9,
+    "name": "Samsung Galaxy S21 FE",
+    "description": "Fan Edition with enhanced features and design",
+    "excerpt": "Upgraded features and design in the Fan Edition",
+    "price": 749.99,
+    "thumbnail": "s21_fe_thumbnail.jpg",
+    "authorId": 1
+  },
+  {
+    "id": 10,
+    "name": "Samsung Galaxy A82",
+    "description": "Premium mid-range phone with 5G connectivity",
+    "excerpt": "5G connectivity in a premium mid-range device",
+    "price": 599.99,
+    "thumbnail": "a82_thumbnail.jpg",
+    "authorId": 1
+  },
+  {
+    "id": 11,
+    "name": "Samsung Galaxy M52",
+    "description": "Mid-range phone with a focus on multimedia",
+    "excerpt": "Enhanced multimedia experience in a mid-range device",
+    "price": 449.99,
+    "thumbnail": "m52_thumbnail.jpg",
+    "authorId": 1
+  },
+  {
+    "id": 12,
+    "name": "Samsung Galaxy Z Flip 3",
+    "description": "Compact foldable phone with a stylish design",
+    "excerpt": "Stylish design in a compact and foldable form factor",
+    "price": 1299.99,
+    "thumbnail": "z_flip_3_thumbnail.jpg",
+    "authorId": 1
+  },
+  {
+    "id": 13,
+    "name": "Samsung Galaxy A32",
+    "description": "Budget-friendly phone with a large display",
+    "excerpt": "Affordable device with a spacious display",
+    "price": 279.99,
+    "thumbnail": "a32_thumbnail.jpg",
+    "authorId": 1
+  },
+  {
+    "id": 14,
+    "name": "Samsung Galaxy S21 Ultra",
+    "description": "Ultimate flagship with advanced camera system",
+    "excerpt": "Top-of-the-line flagship with a powerful camera setup",
+    "price": 1299.99,
+    "thumbnail": "s21_ultra_thumbnail.jpg",
+    "authorId": 1
+  },
+  {
+    "id": 15,
+    "name": "Samsung Galaxy A12",
+    "description": "Entry-level phone with a modern design",
+    "excerpt": "Modern design in an affordable entry-level device",
+    "price": 179.99,
+    "thumbnail": "a12_thumbnail.jpg",
+    "authorId": 1
+  },
+  {
+    "id": 16,
+    "name": "Samsung Galaxy M42",
+    "description": "Mid-range phone with 5G connectivity",
+    "excerpt": "5G connectivity in a feature-packed mid-range device",
+    "price": 349.99,
+    "thumbnail": "m42_thumbnail.jpg",
+    "authorId": 1
+  },
+  {
+    "id": 17,
+    "name": "Samsung Galaxy Xcover Pro",
+    "description": "Rugged phone for outdoor and professional use",
+    "excerpt": "Durable and rugged design for outdoor professionals",
+    "price": 499.99,
+    "thumbnail": "xcover_pro_thumbnail.jpg",
+    "authorId": 1
+  },
+  {
+    "id": 18,
+    "name": "Samsung Galaxy A22",
+    "description": "Affordable phone with a versatile camera setup",
+    "excerpt": "Versatile camera setup in an affordable device",
+    "price": 249.99,
+    "thumbnail": "a22_thumbnail.jpg",
+    "authorId": 1
+  },
+  {
+    "id": 19,
+    "name": "Samsung Galaxy F41",
+    "description": "Feature-packed phone for multimedia enthusiasts",
+    "excerpt": "Multimedia-focused features in a budget-friendly device",
+    "price": 329.99,
+    "thumbnail": "f41_thumbnail.jpg",
+    "authorId": 1
+  },
+  {
+    "id": 20,
+    "name": "Samsung Galaxy Z Fold Lite",
+    "description": "Lite version of the foldable flagship",
+    "excerpt": "Foldable display experience in a more affordable package",
+    "price": 1299.99,
+    "thumbnail": "z_fold_lite_thumbnail.jpg",
+    "authorId": 1
+  }
+]
