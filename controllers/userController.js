@@ -173,8 +173,7 @@ class userController {
       );
 
       res.status(200).json({
-        status: 0,
-        message: "Update Profile Image berhasil",
+        message: "Profile image successfully changed",
         data: {
           email: findUpdate[1][0].email,
           full_name: findUpdate[1][0].full_name,

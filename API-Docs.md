@@ -162,4 +162,48 @@ _Response (401 - Unauthorized)_
 }
 ```
 
-## 5. POST /profile/update
+## 5. POST /profile/image
+
+- Headers :
+
+```json
+{
+  "Authorization": "Bearer <access_token>"
+}
+```
+
+- Request body :
+
+```
+file
+string($binary)
+```
+
+_Response (200 - Request Successfully)_
+
+```json
+{
+  "message": "Profile image successfully changed",
+  "data": {
+    "email": "welcome1@example.com",
+    "full_name": "welcome satu",
+    "profile_image": "https://res.cloudinary.com/diebcsgvf/image/upload/v1714473314/tht/urutan%20query.jpeg-2557eee3-ad6d-42a8-9416-fc436fc2e9c8.jpg"
+  }
+}
+```
+
+_Response (400 - Bad Request)_
+
+```json
+{
+  "message": "The image cannot be empty or is in the wrong file format"
+}
+```
+
+_Response (401 - Unauthorized)_
+
+```json
+{
+  "message": "The token is invalid or expired"
+}
+```

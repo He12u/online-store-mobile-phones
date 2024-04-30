@@ -1,6 +1,6 @@
 const errorHandler = async (error, req, res, next) => {
-  console.log(error.name, "<<<<< ERROR is here");
-  console.log(error);
+  // console.log(error.name, "<<<<< ERROR is here");
+  // console.log(error);
   if (
     error.name === "SequelizeValidationError" ||
     error.name === "SequelizeUniqueConstraintError"
