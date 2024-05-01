@@ -70,7 +70,7 @@ class productController {
   static async addProduct(req, res, next) {
     try {
       let { name, description, excerpt, price } = req.body;
-      const { id } = req.user;
+      let { id } = req.user;
 
       if (!req.file) {
         throw { name: "thumbnail_image required" };
