@@ -13,3 +13,6 @@ cloud_name = "";
 api_key = "";
 api_secret = "";
 ```
+
+3. To run dev "npm run dev"
+4. To run test "npm run test"

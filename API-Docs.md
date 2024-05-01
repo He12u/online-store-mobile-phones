@@ -10,12 +10,14 @@ routes below need authentication :
 - 'GET /user/profile'
 - 'PUT /user/profile/update'
 - 'PATCH /user/profile/image'
-- 'POST /product/create'
 - 'GET /product/lists'
 - 'GET /product/:id'
-- 'PUT /product/:id/update'
 
 routes below need authorization :
+
+- 'POST /product/create'
+- 'PUT /product/:id/update'
+- 'DELETE /product/:id/delete'
 
 &nbsp;
 
@@ -405,6 +407,28 @@ _Response (400 - Bad Request)_
 }
 ```
 
+```json
+{
+  "message": "The image cannot be empty or is in the wrong file format"
+}
+```
+
+_Response (401 - Unauthorized)_
+
+```json
+{
+  "message": "The token is invalid or expired"
+}
+```
+
+_Response (403 - Forbiden)_
+
+```json
+{
+  "message": "Forbiden Access"
+}
+```
+
 ## 11. PUT /product/:id/update
 
 - Headers :
@@ -464,6 +488,22 @@ _Response (400 - Bad Request)_
 }
 ```
 
+_Response (401 - Unauthorized)_
+
+```json
+{
+  "message": "The token is invalid or expired"
+}
+```
+
+_Response (403 - Forbiden)_
+
+```json
+{
+  "message": "Forbiden Access"
+}
+```
+
 ## 12. DELETE /product/:id/delete
 
 - Headers :
@@ -493,5 +533,21 @@ _Response (400 - Bad Request)_
 ```json
 {
   "message": "The product was not found"
+}
+```
+
+_Response (401 - Unauthorized)_
+
+```json
+{
+  "message": "The token is invalid or expired"
+}
+```
+
+_Response (403 - Forbiden)_
+
+```json
+{
+  "message": "Forbiden Access"
 }
 ```
