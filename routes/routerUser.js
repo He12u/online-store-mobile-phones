@@ -11,7 +11,7 @@ router.post("/login", userController.login);
 // below need authentication
 router.get("/profile", authentication, userController.profile);
 router.put("/profile/update", authentication, userController.profileUpdate);
-router.put(
+router.patch(
   "/profile/image",
   authentication,
   upload.single("profile_image"),

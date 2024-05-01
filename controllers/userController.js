@@ -20,7 +20,7 @@ class userController {
         password,
       });
 
-      res.status(200).json({
+      res.status(201).json({
         message: "Registration Successfully",
       });
     } catch (error) {

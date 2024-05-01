@@ -9,10 +9,11 @@ routes below need authentication :
 
 - 'GET /user/profile'
 - 'PUT /user/profile/update'
-- 'PUT /user/profile/image'
-- 'POST /product/addProduct'
+- 'PATCH /user/profile/image'
+- 'POST /product/create'
 - 'GET /product/lists'
 - 'GET /product/:id'
+- 'PUT /product/:id/update'
 
 routes below need authorization :
 
@@ -30,7 +31,7 @@ routes below need authorization :
 }
 ```
 
-_Response (200 - Request Successfully)_
+_Response (201 - Created)_
 
 ```json
 {
@@ -167,11 +168,11 @@ _Response (401 - Unauthorized)_
 
 ```json
 {
-  "message": "The token is invalid or expired"
+  "message": "The token is invalid or ePATCHred"
 }
 ```
 
-## 5. PUT /user/profile/image
+## 5. PATCH /user/profile/image
 
 - Headers :
 
@@ -365,7 +366,7 @@ _Response (400 - Bad Request)_
 }
 ```
 
-## 10. POST /product/:id
+## 10. POST /product/create
 
 - Headers :
 
@@ -385,4 +386,112 @@ let { id } = req.user;
 ```
 file
 string($binary)
+```
+
+_Response (201 - Created)_
+
+```json
+{
+  "message": "Login Successfully",
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IndlbGNvbWUxQGV4YW1wbGUuY29tIiwicm9sZSI6ImNsaWVudCIsImV4cGlyYXRpb24iOjE3MTQ1MDQ5MzcsImlhdCI6MTcxNDQ2MTczN30.7YxcGa_tNS87Ft3XZdpff_lyLmZEOYaJzUEESWhBBLY"
+}
+```
+
+_Response (400 - Bad Request)_
+
+```json
+{
+  "message": "Price must be a positive number"
+}
+```
+
+## 11. PUT /product/:id/update
+
+- Headers :
+
+```json
+{
+  "Authorization": "Bearer <access_token>"
+}
+```
+
+_Params_
+
+```js
+let { id } = req.params;
+```
+
+- Request body :
+
+```js
+let { name, description, excerpt, price } = req.body;
+let { id } = req.user;
+```
+
+```
+file
+string($binary)
+```
+
+_Response (200 - Request Successfully)_
+
+```json
+{
+  "message": "Product successfully updated",
+  "data": {
+    "name": "New mobile phones type",
+    "description": "the one and only mobile phones type",
+    "excerpt": "the one and only",
+    "price": 900,
+    "thumbnail": "https://res.cloudinary.com/diebcsgvf/image/upload/v1714566968/tht/urutan%20query.jpeg-4c978fe9-e95d-4285-9f89-b64ba898418e.jpg"
+  }
+}
+```
+
+_Response (400 - Bad Request)_
+
+```json
+{
+  "message": "Price must be a positive number"
+}
+```
+
+_Response (400 - Bad Request)_
+
+```json
+{
+  "message": "The product was not found"
+}
+```
+
+## 12. DELETE /product/:id/delete
+
+- Headers :
+
+```json
+{
+  "Authorization": "Bearer <access_token>"
+}
+```
+
+_Params_
+
+```js
+let { id } = req.params;
+```
+
+_Response (200 - Request Successfully)_
+
+```json
+{
+  "message": "The product has been successfully deleted"
+}
+```
+
+_Response (400 - Bad Request)_
+
+```json
+{
+  "message": "The product was not found"
+}
 ```
