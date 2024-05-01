@@ -4,7 +4,7 @@
   "description": "Backend Developer Task - 10xers Labs",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "clear && jest --coverage --forceExit",
     "dev": "npx nodemon ./bin/www"
   },
   "keywords": [],

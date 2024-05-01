@@ -146,7 +146,7 @@ _Response (401 - Unauthorized)_
 
 ```json
 {
-  "email": "welcome1@example.com",
+  "full_name": "welcome1@example.com",
   "password": "123456789"
 }
 ```
@@ -168,7 +168,7 @@ _Response (401 - Unauthorized)_
 
 ```json
 {
-  "message": "The token is invalid or ePATCHred"
+  "message": "The token is invalid or expired"
 }
 ```
 
