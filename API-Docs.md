@@ -2,8 +2,14 @@
 
 - 'POST /registration'
 - 'POST /login'
+- 'GET /public/products'
+- 'GET /public/products/:id'
 
 routes below need authentication :
+
+- 'GET /profile'
+- 'PUT /profile/update'
+- 'PUT /profile/image'
 
 routes below need authorization :
 
@@ -91,7 +97,7 @@ _Response (401 - Unauthorized)_
 }
 ```
 
-## 3. POST /profile
+## 3. GET /profile
 
 - Headers :
 
@@ -122,7 +128,7 @@ _Response (401 - Unauthorized)_
 }
 ```
 
-## 4. POST /profile/update
+## 4. PUT /profile/update
 
 - Headers :
 
@@ -162,7 +168,7 @@ _Response (401 - Unauthorized)_
 }
 ```
 
-## 5. POST /profile/image
+## 5. PUT /profile/image
 
 - Headers :
 
@@ -205,5 +211,71 @@ _Response (401 - Unauthorized)_
 ```json
 {
   "message": "The token is invalid or expired"
+}
+```
+
+## 6. GET /public/products
+
+- Request query :
+
+_Query_
+
+```js
+{ sort, search, page } = req.query
+```
+
+_Response (200 - Request Successfully)_
+
+```json
+{
+  "total": 1,
+  "size": 10,
+  "totalPage": 1,
+  "currentPage": 1,
+  "data": [
+    {
+      "id": 15,
+      "name": "Samsung Galaxy A12",
+      "description": "Entry-level phone with a modern design",
+      "excerpt": "Modern design in an affordable entry-level device",
+      "price": 180,
+      "thumbnail": "a12_thumbnail.jpg",
+      "authorId": 1,
+      "createdAt": "2024-04-30T06:42:15.685Z",
+      "updatedAt": "2024-04-30T06:42:15.685Z"
+    }
+  ]
+}
+```
+
+## 7. GET /public/products/:id
+
+_Params_
+
+```js
+let { id } = req.params;
+```
+
+_Response (200 - Request Successfully)_
+
+```json
+{
+  "id": 1,
+  "name": "Samsung Galaxy S21",
+  "description": "Flagship smartphone with powerful features",
+  "excerpt": "Powerful flagship device with top-notch features",
+  "price": 800,
+  "thumbnail": "s21_thumbnail.jpg",
+  "authorId": 1,
+  "createdAt": "2024-04-30T06:42:15.685Z",
+  "updatedAt": "2024-04-30T06:42:15.685Z"
+}
+```
+
+_Response (400 - Bad Request)_
+
+```json
+{
+  "message": "The product was not found"
 }
 ```

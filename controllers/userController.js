@@ -1,4 +1,4 @@
-const { comparePassword } = require("../helpers/bcrypt");
+const { comparePassword, hashPassword } = require("../helpers/bcrypt");
 const { createToken } = require("../helpers/jwt");
 const { User } = require("../models");
 const cloudinary = require("cloudinary");
@@ -31,7 +31,6 @@ class userController {
   static async login(req, res, next) {
     try {
       const { email, password } = req.body;
-
       if (!email) {
         throw { name: "email required" };
       } else if (!password) {
@@ -48,7 +47,7 @@ class userController {
         where: {
           email,
         },
-        attributes: { exclude: ["id", "password", "createdAt", "updatedAt"] },
+        attributes: { exclude: ["id", "createdAt", "updatedAt"] },
       });
 
       if (!findUser) {
@@ -116,7 +115,7 @@ class userController {
         propertyUpdate.full_name = full_name;
       }
       if (password) {
-        propertyUpdate.password = password;
+        propertyUpdate.password = hashPassword(password);
       }
 
       let findUpdate = await User.update(propertyUpdate, {

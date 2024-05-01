@@ -1,6 +1,6 @@
 const errorHandler = async (error, req, res, next) => {
-  // console.log(error.name, "<<<<< ERROR is here");
-  // console.log(error);
+  console.log(error.name, "<<<<< ERROR is here");
+  console.log(error);
   if (
     error.name === "SequelizeValidationError" ||
     error.name === "SequelizeUniqueConstraintError"
@@ -36,6 +36,10 @@ const errorHandler = async (error, req, res, next) => {
   ) {
     res.status(400).json({
       message: "The image cannot be empty or is in the wrong file format",
+    });
+  } else if (error.name === "NotFound") {
+    res.status(400).json({
+      message: "The product was not found",
     });
   } else {
     res.status(500).json({ message: "Internal Server Error" });
