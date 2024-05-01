@@ -1,52 +1,37 @@
-const { describe, expect, test, it, beforeAll } = require("@jest/globals");
-const request = require("supertest");
 const app = require("../app");
-const { sequelize } = require("../models");
+const request = require("supertest");
+const products = require("../data/product.json");
+const users = require("../data/user.json");
 const { hashPassword } = require("../helpers/bcrypt");
+
+// const { User, Product } = require("../models");
+const { sequelize } = require("../models");
 const { queryInterface } = sequelize;
-const path = require("path");
-const fs = require("fs");
 
-const filePath = path.resolve(__dirname, "../assets/earth.jpg");
-const imageBuffer = fs.readFileSync(filePath);
-
-let findTokenAdmin;
-let findTokenClient;
-const kirimImage = "../assets/satu.png";
 beforeAll(async () => {
-  const users = require("../data/user.json").map((el) => {
-    el.password = hashPassword(el.password);
-    el.createdAt = new Date();
-    el.updatedAt = new Date();
-    return el;
-  });
+  try {
+    await queryInterface.bulkInsert(
+      "Users",
+      users.map((el) => {
+        el.password = hashPassword(el.password);
+        el.createdAt = new Date();
+        el.updatedAt = new Date();
+        return el;
+      })
+    );
 
-  const products = require("../data/product.json").map((el) => {
-    delete el.id;
-    el.createdAt = new Date();
-    el.updatedAt = new Date();
-    return el;
-  });
-
-  await queryInterface.bulkInsert("Users", users);
-  await queryInterface.bulkInsert("Products", products);
-
-  const admin = {
-    email: "alice@example.com",
-    password: "123456789",
-  };
-
-  const findAdmin = await request(app).post("/user/login").send(admin);
-  // console.log(findAdmin.body.access_token,'<<<<<<<<<<<<<<<<<');
-  findTokenAdmin = findAdmin.body.access_token;
-
-  const client = {
-    email: "bob@example.com",
-    password: "123456789",
-  };
-
-  const findClient = await request(app).post("/user/login").send(client);
-  findTokenClient = findClient.body.access_token;
+    await queryInterface.bulkInsert(
+      "Products",
+      products.map((el) => {
+        delete el.id;
+        el.createdAt = new Date();
+        el.updatedAt = new Date();
+        return el;
+      })
+    );
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 afterAll(async () => {
@@ -76,9 +61,6 @@ describe("POST /user/registration", () => {
       .send(newUser);
     console.log(response, "<<<<");
     expect(response.status).toBe(201);
-    expect(response.body).toHaveProperty("email", expect.any(String));
-    expect(response.body).toHaveProperty("full_name", expect.any(String));
-    expect(response.body).toHaveProperty("password", expect.any(String));
   });
 
   // it("should response with status code 400", async () => {

@@ -4,7 +4,8 @@
   "description": "Backend Developer Task - 10xers Labs",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "npx nodemon ./bin/www"
   },
   "keywords": [],
   "author": "",
