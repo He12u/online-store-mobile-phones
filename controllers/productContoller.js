@@ -1,4 +1,4 @@
-const { User, Product } = require("../models");
+const { Product } = require("../models");
 const { Op } = require("sequelize");
 const cloudinary = require("cloudinary");
 const uuid = require("crypto").randomUUID();
