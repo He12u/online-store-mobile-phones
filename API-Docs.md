@@ -1,21 +1,24 @@
 ## List of Available Endpoints :
 
-- 'POST /registration'
-- 'POST /login'
+- 'POST /user/registration'
+- 'POST /user/login'
 - 'GET /public/products'
 - 'GET /public/products/:id'
 
 routes below need authentication :
 
-- 'GET /profile'
-- 'PUT /profile/update'
-- 'PUT /profile/image'
+- 'GET /user/profile'
+- 'PUT /user/profile/update'
+- 'PUT /user/profile/image'
+- 'POST /product/addProduct'
+- 'GET /product/lists'
+- 'GET /product/:id'
 
 routes below need authorization :
 
 &nbsp;
 
-## 1. POST /registration
+## 1. POST /user/registration
 
 - Request body :
 
@@ -55,7 +58,7 @@ _Response (400 - Bad Request)_
 }
 ```
 
-## 2. POST /login
+## 2. POST /user/login
 
 - Request body :
 
@@ -97,7 +100,7 @@ _Response (401 - Unauthorized)_
 }
 ```
 
-## 3. GET /profile
+## 3. GET /user/profile
 
 - Headers :
 
@@ -128,7 +131,7 @@ _Response (401 - Unauthorized)_
 }
 ```
 
-## 4. PUT /profile/update
+## 4. PUT /user/profile/update
 
 - Headers :
 
@@ -168,7 +171,7 @@ _Response (401 - Unauthorized)_
 }
 ```
 
-## 5. PUT /profile/image
+## 5. PUT /user/profile/image
 
 - Headers :
 
@@ -278,4 +281,108 @@ _Response (400 - Bad Request)_
 {
   "message": "The product was not found"
 }
+```
+
+## 8. GET /product/list
+
+- Headers :
+
+```json
+{
+  "Authorization": "Bearer <access_token>"
+}
+```
+
+- Request query :
+
+_Query_
+
+```js
+{ sort, search, page } = req.query
+```
+
+_Response (200 - Request Successfully)_
+
+```json
+{
+  "total": 1,
+  "size": 10,
+  "totalPage": 1,
+  "currentPage": 1,
+  "data": [
+    {
+      "id": 15,
+      "name": "Samsung Galaxy A12",
+      "description": "Entry-level phone with a modern design",
+      "excerpt": "Modern design in an affordable entry-level device",
+      "price": 180,
+      "thumbnail": "a12_thumbnail.jpg",
+      "authorId": 1,
+      "createdAt": "2024-04-30T06:42:15.685Z",
+      "updatedAt": "2024-04-30T06:42:15.685Z"
+    }
+  ]
+}
+```
+
+## 9. GET /product/:id
+
+- Headers :
+
+```json
+{
+  "Authorization": "Bearer <access_token>"
+}
+```
+
+_Params_
+
+```js
+let { id } = req.params;
+```
+
+_Response (200 - Request Successfully)_
+
+```json
+{
+  "id": 1,
+  "name": "Samsung Galaxy S21",
+  "description": "Flagship smartphone with powerful features",
+  "excerpt": "Powerful flagship device with top-notch features",
+  "price": 800,
+  "thumbnail": "s21_thumbnail.jpg",
+  "authorId": 1,
+  "createdAt": "2024-04-30T06:42:15.685Z",
+  "updatedAt": "2024-04-30T06:42:15.685Z"
+}
+```
+
+_Response (400 - Bad Request)_
+
+```json
+{
+  "message": "The product was not found"
+}
+```
+
+## 10. POST /product/:id
+
+- Headers :
+
+```json
+{
+  "Authorization": "Bearer <access_token>"
+}
+```
+
+- Request body :
+
+```js
+let { name, description, excerpt, price } = req.body;
+let { id } = req.user;
+```
+
+```
+file
+string($binary)
 ```

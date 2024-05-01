@@ -62,7 +62,6 @@ class userController {
 
       const access_token = createToken({
         email: findUser.email,
-        role: findUser.role,
         expiration: Math.floor(Date.now() / 1000) + 12 * 60 * 60,
       });
 
@@ -103,13 +102,6 @@ class userController {
       const { email } = req.user;
       const { full_name, password } = req.body;
 
-      // if (!first_name) {
-      //   throw { name: "first_name required!" };
-      // }
-
-      // if (!last_name) {
-      //   throw { name: "last_name required!" };
-      // }
       let propertyUpdate = {};
       if (full_name) {
         propertyUpdate.full_name = full_name;
@@ -140,7 +132,7 @@ class userController {
 
   static async profileImage(req, res, next) {
     try {
-      // console.log(req.file, "<<<<<<<<<<< INI REQ FILE");
+      // console.log(req.file, "<<<<<<<<<<<");
       const { email } = req.user;
 
       if (!req.file) {

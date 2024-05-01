@@ -32,6 +32,7 @@ const errorHandler = async (error, req, res, next) => {
     });
   } else if (
     error.name === "profile_image required" ||
+    error.name === "thumbnail_image required" ||
     error.name === "invalid file format"
   ) {
     res.status(400).json({

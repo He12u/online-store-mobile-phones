@@ -66,6 +66,45 @@ class productController {
       next(error);
     }
   }
+
+  static async addProduct(req, res, next) {
+    try {
+      let { name, description, excerpt, price } = req.body;
+      const { id } = req.user;
+
+      if (!req.file) {
+        throw { name: "thumbnail_image required" };
+      }
+
+      if (
+        req.file.mimetype !== "image/jpeg" &&
+        req.file.mimetype !== "image/png"
+      ) {
+        throw { name: "invalid file format" };
+      }
+
+      const imgBase64 = Buffer.from(req.file.buffer).toString("base64");
+      const dataURI = `data:${req.file.mimetype};base64,${imgBase64}`;
+      const result = await cloudinary.v2.uploader.upload(dataURI, {
+        folder: "tht",
+        public_id: `${req.file.originalname}-${uuid}`,
+      });
+
+      const urlFile = result.secure_url;
+
+      await Product.create({
+        name,
+        description,
+        excerpt,
+        price,
+        thumbnail: urlFile,
+        authorId: id,
+      });
+      res.status(201).json({ message: "The product was successfully added" });
+    } catch (error) {
+      next(error);
+    }
+  }
   // end product controller
 }
 

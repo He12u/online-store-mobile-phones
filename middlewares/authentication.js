@@ -17,7 +17,7 @@ const authentication = async (req, res, next) => {
       where: {
         email: verified.email,
       },
-      attributes: { exclude: ["id", "password", "createdAt", "updatedAt"] },
+      attributes: { exclude: ["password", "createdAt", "updatedAt"] },
     });
 
     if (!findUser) {
@@ -26,6 +26,7 @@ const authentication = async (req, res, next) => {
 
     if (Math.floor(Date.now() / 1000) <= verified.expiration) {
       req.user = {
+        id: findUser.id,
         email: findUser.email,
         role: findUser.role,
       };
