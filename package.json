@@ -4,7 +4,7 @@
   "description": "Backend Developer Task - 10xers Labs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,8 @@
     "sequelize": "^6.37.3"
   },
   "devDependencies": {
-    "sequelize-cli": "^6.6.2"
+    "jest": "^29.7.0",
+    "sequelize-cli": "^6.6.2",
+    "supertest": "^7.0.0"
   }
 }
